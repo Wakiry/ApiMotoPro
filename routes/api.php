@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\ManufacturerController;
+use App\Http\Controllers\API\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
