@@ -9,6 +9,10 @@ class Engine extends Model
 {
     use HasFactory;
 
+    public int $idEngine;
+    public int $idTypeEngine;
+    public int $capacity;
+
     /**
      * The table associated with the model.
      *

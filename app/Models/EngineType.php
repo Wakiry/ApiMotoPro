@@ -9,6 +9,9 @@ class EngineType extends Model
 {
     use HasFactory;
 
+    public int $idEngineType;
+    public string $name;
+
     /**
      * The table associated with the model.
      *
