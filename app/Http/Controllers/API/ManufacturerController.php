@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Manufacturer;
-use Illuminate\Http\Response;
 use Validator;
 use App\Http\Resources\ManufacturerResource;
 use Illuminate\Http\JsonResponse;
@@ -31,34 +30,29 @@ class ManufacturerController extends BaseController
      */
     public function store(Request $request): JsonResponse
     {
-        $input = $request->all();
-
-        $validator = Validator::make($input, [
+        $validator = Validator::make($request->all(), [
             'name' => 'required'
         ]);
 
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors());
         }
-        $manufacturer = Manufacturer::create($input);
 
-        return $this->sendResponse(new ManufacturerResource($manufacturer), 'Manufacturer created successfully.');
+        return $this->sendResponse(new ManufacturerResource(Manufacturer::create($request->all())), 'Manufacturer created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param int $idManufacturer
      * @return JsonResponse
      */
-    public function show(int $id): JsonResponse
+    public function show(int $idManufacturer): JsonResponse
     {
-        $manufacturer = Manufacturer::find($id);
-
-        if (is_null($manufacturer)) {
+        if (is_null(Manufacturer::find($idManufacturer))) {
             return $this->sendError('Manufacturer not found.');
         }
-        return $this->sendResponse(new ManufacturerResource($manufacturer), 'Manufacturer retrieved successfully.');
+        return $this->sendResponse(new ManufacturerResource(Manufacturer::find($idManufacturer)), 'Manufacturer retrieved successfully.');
     }
 
     /**
@@ -70,9 +64,7 @@ class ManufacturerController extends BaseController
      */
     public function update(Request $request, Manufacturer $manufacturer): JsonResponse
     {
-        $input = $request->all();
-
-        $validator = Validator::make($input, [
+        $validator = Validator::make($request->all(), [
             'name' => 'required'
         ]);
 
@@ -80,7 +72,7 @@ class ManufacturerController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $manufacturer->name = $input['name'];
+        $manufacturer->name = $request['name'];
         $manufacturer->save();
 
         return $this->sendResponse(new ManufacturerResource($manufacturer), 'Manufacturer updated successfully.');
