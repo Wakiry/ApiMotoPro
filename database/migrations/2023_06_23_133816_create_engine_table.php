@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_engine_type');
             $table->foreign('id_engine_type')->references('id_engine_type')->on('engine_type');
             $table->string('name');
+            $table->integer('capacity');
         });
     }
 
