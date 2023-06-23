@@ -13,11 +13,8 @@ class ManufacturerResource extends JsonResource
      * @param Request $request
      * @return array
      */
-    public function toArray(Request $request): array
+    public function toArray($request): array
     {
-        return [
-            'id_manufacturer' => $this->id,
-            'name' => $this->name
-        ];
+        return UserResource::make($request)->resolve();
     }
 }
