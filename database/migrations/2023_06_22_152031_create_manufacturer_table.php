@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('manufacturer', function (Blueprint $table) {
-            $table->id('id_manufacturer');
+            $table->id('id_manufacturer')->autoIncrement();
             $table->string('name');
         });
     }

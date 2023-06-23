@@ -30,6 +30,8 @@ class Manufacturer extends Model
      */
     public $incrementing = true;
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *

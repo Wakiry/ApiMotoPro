@@ -15,6 +15,9 @@ class ManufacturerResource extends JsonResource
      */
     public function toArray($request): array
     {
-        return UserResource::make($request)->resolve();
+        return [
+            'id_manufacturer' => $this->id_manufacturer,
+            'name' => $this->name
+        ];
     }
 }
