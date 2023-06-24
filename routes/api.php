@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\API\EngineController;
+use App\Http\Controllers\API\EngineTypeController;
 use App\Http\Controllers\API\ManufacturerController;
 use App\Http\Controllers\API\RegisterController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +24,6 @@ Route::controller(RegisterController::class)->group(function () {
 
 Route::middleware('auth:sanctum')->group( function () {
     Route::resource('manufacturer', ManufacturerController::class);
+    Route::resource('engine_type', EngineTypeController::class);
+    Route::resource('engine', EngineController::class);
 });
