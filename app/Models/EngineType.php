@@ -4,13 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class EngineType extends Model
 {
     use HasFactory;
-
-    public int $idEngineType;
-    public string $name;
 
     /**
      * The table associated with the model.
@@ -43,4 +41,9 @@ class EngineType extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function engine(): HasMany
+    {
+        return $this->hasMany(Engine::class);
+    }
 }

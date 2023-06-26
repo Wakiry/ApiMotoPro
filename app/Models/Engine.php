@@ -4,14 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Engine extends Model
 {
     use HasFactory;
-
-    public int $idEngine;
-    public int $idTypeEngine;
-    public int $capacity;
 
     /**
      * The table associated with the model.
@@ -44,4 +41,9 @@ class Engine extends Model
     protected $fillable = [
         'capacity'
     ];
+
+    public function engineType(): BelongsTo
+    {
+        return $this->belongsTo(EngineType::class);
+    }
 }

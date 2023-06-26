@@ -9,9 +9,6 @@ class Manufacturer extends Model
 {
     use HasFactory;
 
-    public int $idManufacturer;
-    public string $name;
-
     /**
      * The table associated with the model.
      *

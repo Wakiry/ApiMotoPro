@@ -6,9 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ManufacturerResource extends JsonResource
 {
-    private int $idManufacturer;
-    private string $name;
-
     /**
      * Transform the resource into an array.
      *
@@ -18,7 +15,7 @@ class ManufacturerResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id_manufacturer' => $this->idManufacturer,
+            'id_manufacturer' => $this->id_manufacturer,
             'name' => $this->name
         ];
     }

@@ -6,9 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class EngineTypeResource extends JsonResource
 {
-    private int $idEngineType;
-    private string $name;
-
     /**
      * Transform the resource into an array.
      *
@@ -18,7 +15,7 @@ class EngineTypeResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id_engine_type' => $this->idEngineType,
+            'id_engine_type' => $this->id_engine_type,
             'name' => $this->name
         ];
     }
