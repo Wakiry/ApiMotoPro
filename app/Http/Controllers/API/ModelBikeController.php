@@ -9,7 +9,7 @@ use Validator;
 use App\Http\Resources\ModelBikeResource;
 use Illuminate\Http\JsonResponse;
 
-class ModelBikeController extends Controller
+class ModelBikeController extends BaseController
 {
     /**
      * Display a listing of the resource.

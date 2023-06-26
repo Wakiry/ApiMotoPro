@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class ModelBike extends Model
+class Bike extends Model
 {
     use HasFactory;
 
@@ -16,14 +15,14 @@ class ModelBike extends Model
      *
      * @var string
      */
-    protected $table = 'model_bike';
+    protected $table = 'bike';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'id_model_bike';
+    protected $primaryKey = 'id_bike';
 
     /**
      * Indicates if the model's ID is auto-incrementing.
@@ -32,7 +31,7 @@ class ModelBike extends Model
      */
     public $incrementing = true;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * The attributes that are mass assignable.
@@ -40,8 +39,8 @@ class ModelBike extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'year_model'
+        'hour',
+        'km'
     ];
 
     /**
@@ -49,22 +48,6 @@ class ModelBike extends Model
      */
     public function manufacturer(): HasOne
     {
-        return $this->hasOne(Manufacturer::class);
-    }
-
-    /**
-     * @return HasOne
-     */
-    public function engine(): HasOne
-    {
-        return $this->hasOne(Engine::class);
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function bike(): BelongsTo
-    {
-        return $this->belongsTo(Bike::class);
+        return $this->hasOne(ModelBike::class);
     }
 }
