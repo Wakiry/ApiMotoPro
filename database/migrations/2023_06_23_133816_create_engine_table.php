@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('engine', function (Blueprint $table) {
-            $table->id('id_engine');
+            $table->id('id_engine')->autoIncrement();
             $table->unsignedBigInteger('id_engine_type');
             $table->foreign('id_engine_type')->references('id_engine_type')->on('engine_type');
             $table->string('name');

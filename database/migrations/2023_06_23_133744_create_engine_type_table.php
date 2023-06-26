@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('engine_type', function (Blueprint $table) {
-            $table->id('id_engine_type');
+            $table->id('id_engine_type')->autoIncrement();
             $table->string('name');
         });
     }
