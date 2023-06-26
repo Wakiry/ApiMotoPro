@@ -42,6 +42,9 @@ class EngineType extends Model
         'name'
     ];
 
+    /**
+     * @return HasMany
+     */
     public function engine(): HasMany
     {
         return $this->hasMany(Engine::class);

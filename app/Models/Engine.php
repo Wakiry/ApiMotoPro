@@ -42,8 +42,19 @@ class Engine extends Model
         'capacity'
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function engineType(): BelongsTo
     {
         return $this->belongsTo(EngineType::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function modelBike(): BelongsTo
+    {
+        return $this->belongsTo(ModelBike::class);
     }
 }
